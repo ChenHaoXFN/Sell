@@ -1,8 +1,12 @@
 package com.cdsn.sell.repository;
 
 import com.cdsn.sell.entity.ProductCategory;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,4 +67,9 @@ public class ProductCategoryRepositoryTest {
     repository.deleteById(1);
   }
 
+  @Test
+  public void queryTest2() {
+    List<ProductCategory> allBycaAndCategoryType = repository.findByCategoryTypeIn(Arrays.asList(11,22));
+    Assert.assertNotEquals(0,allBycaAndCategoryType.size());
+  }
 }

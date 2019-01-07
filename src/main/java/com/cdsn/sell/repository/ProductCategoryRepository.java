@@ -1,6 +1,7 @@
 package com.cdsn.sell.repository;
 
 import com.cdsn.sell.entity.ProductCategory;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -14,4 +15,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Integer> {
 
+  /**
+   * 根据类目标号查询出类目list.
+   */
+  List<ProductCategory> findByCategoryTypeIn(List<Integer> categoryTypes);
 }
