@@ -6,6 +6,7 @@ create table `product_info`(
 	`product_stock` int not null comment '商品库存',
 	`product_description` varchar(64) comment '商品描述',
 	`product_icon` varchar(512) comment '商品小图',
+	`product_status` tinyint(3) not null comment '商品状态',
 	`category_type` int not null comment '类目编号',
 	`create_time` timestamp not null default current_timestamp comment '创建时间', -- 在创建该条时自动插入当前时间在这个字段
 	`update_time` timestamp not null default current_timestamp on update 
