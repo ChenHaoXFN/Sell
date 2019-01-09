@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -16,6 +17,7 @@ import org.hibernate.annotations.DynamicUpdate;
  *
  * Created at 2019-01-07 14:34
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Entity
 @DynamicInsert
@@ -26,37 +28,37 @@ public class ProductInfo extends BaseEntity {
   private String productId;
 
   /**
-   * 商品名称
+   * 商品名称.
    */
   private String productName;
 
   /**
-   * 商品金额
+   * 商品金额.
    */
   private BigDecimal productPrice;
 
   /**
-   * 商品库存
+   * 商品库存.
    */
   private Integer productStock;
 
   /**
-   * 商品描述
+   * 商品描述.
    */
   private String productDescription;
 
   /**
-   * 商品小图
+   * 商品小图.
    */
   private String productIcon;
 
   /**
-   * 商品状态
+   * 商品状态.
    */
   private Integer productStatus;
 
   /**
-   * 类目编号
+   * 类目编号.
    */
   private Integer categoryType;
 

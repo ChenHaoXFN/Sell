@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -19,6 +20,7 @@ import org.hibernate.annotations.DynamicUpdate;
  *
  * Created at 2019-01-07 09:47
  */
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @DynamicUpdate // 更新的时候，动态生成sql语句（只更新更新的数据）
 @DynamicInsert // 新增的时候，动态生成sql语句
