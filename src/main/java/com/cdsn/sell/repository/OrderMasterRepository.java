@@ -4,6 +4,8 @@ import com.cdsn.sell.entity.OrderMaster;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 /**
  * 订单主表Repository
@@ -16,8 +18,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface OrderMasterRepository extends JpaRepository<OrderMaster, String> {
 
+  Page<OrderMaster> findByBuyerOpenid(String openId, Pageable pageable);
+
   /**
-   * 根据买家微信openId查询订单.
+   * 根据订单编号修改订单状态.
    */
-//  Page<OrderMaster> findeByBuyerOpenId(String openId, Pageable pageable);
+  @Query("update OrderMaster set orderStatus = ?2 where orderId = ?1 ")
+  @Modifying
+  Integer editOrderStatus(String orderId, Integer status);
 }

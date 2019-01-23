@@ -1,10 +1,8 @@
 package com.cdsn.sell.repository;
 
+import com.cdsn.sell.entity.OrderDetail;
 import com.cdsn.sell.utils.UUIDUtil;
 import java.math.BigDecimal;
-import java.util.Date;
-
-import com.cdsn.sell.entity.OrderDetail;
 import java.util.Optional;
 import org.junit.Assert;
 import org.junit.Test;
