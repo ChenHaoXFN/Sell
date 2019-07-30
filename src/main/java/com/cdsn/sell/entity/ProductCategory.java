@@ -28,7 +28,8 @@ import org.hibernate.annotations.DynamicUpdate;
 public class ProductCategory extends BaseEntity{
 
   /**
-   * 类目id。
+   * 类目id.
+   * 主键生成策略.
    */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

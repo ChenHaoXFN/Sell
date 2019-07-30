@@ -35,7 +35,7 @@ public class OrderDetailRepositoryTest {
     orderDetail.setProductId("123456");
     orderDetail.setProductName("大连产荷兰豆");
     orderDetail.setProductPrice(new BigDecimal("9.9"));
-    orderDetail.setProductQuantity(3);
+    orderDetail.setProductQuantity(1);
     orderDetail.setProductIcon("http://xxxxxxxx.jpg");
     repository.save(orderDetail);
   }

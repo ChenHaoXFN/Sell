@@ -33,8 +33,8 @@ public class ProductCategoryRepositoryTest {
   @Transactional
   public void saveTest() {
     ProductCategory productCategory = new ProductCategory();
-    productCategory.setCategoryName("测试类目3");
-    productCategory.setCategoryType(22);
+    productCategory.setCategoryName("测试类目1");
+    productCategory.setCategoryType(1);
     ProductCategory save = repository.save(productCategory);
     System.out.println(save);
   }

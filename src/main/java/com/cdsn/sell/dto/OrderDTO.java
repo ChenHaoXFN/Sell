@@ -3,7 +3,6 @@ package com.cdsn.sell.dto;
 import com.cdsn.sell.entity.OrderDetail;
 import java.math.BigDecimal;
 import java.util.List;
-import javax.persistence.Id;
 import lombok.Data;
 
 /**
@@ -21,7 +20,6 @@ public class OrderDTO {
   /**
    * 订单id.
    */
-  @Id
   private String orderId;
 
   /**

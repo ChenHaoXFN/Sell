@@ -10,10 +10,14 @@ import com.cdsn.sell.vo.ProductInfoVO;
 import com.cdsn.sell.vo.ResultVO;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,6 +39,43 @@ public class ProductController {
 
   @Autowired
   private ProductCategoryService categoryService;
+
+  @PostMapping("product")
+  public ResultVO getProduct(@Value("productId") String productId) {
+    // 1.根据id查询.
+    ProductInfo productInfo = infoService.findOne(productId);
+    if (productInfo == null) {
+      return ResultVOUtil.fail("空");
+    }
+    return ResultVOUtil.success(productInfo);
+  }
+
+
+  @GetMapping("all")
+  public List<ProductInfo> getAll() {
+    List<ProductInfo> upAll = infoService.findUpAll();
+    return upAll;
+  }
+
+  @GetMapping("one")
+  public ProductInfo getOne() {
+    return infoService.findOne("123458");
+  }
+
+  @GetMapping("formatOne")
+  public ResultVO getOneRes() {
+
+    return ResultVOUtil.success(infoService.findOne("123458"));
+  }
+
+
+  @GetMapping("getList/{source}")
+  public List<String> getParams(
+      @MatrixVariable(pathVar="source")  List<String> filterParams) {
+    System.out.println(filterParams);
+
+    return null;
+  }
 
   /**
    * 查看所有类目及其对应商品.
