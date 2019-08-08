@@ -35,11 +35,11 @@ public class ProductInfoRepositoryTest {
   @Test
   public void saveTest() {
     ProductInfo productInfo = new ProductInfo();
-    productInfo.setProductId("123458");
-    productInfo.setProductName("荷兰豆");
+    productInfo.setProductId("122");
+    productInfo.setProductName("土豆");
     productInfo.setProductPrice(new BigDecimal("9.9"));
     productInfo.setProductStock(50);
-    productInfo.setProductDescription("绿油油健康的荷兰豆");
+    productInfo.setProductDescription("本地特大土豆");
     productInfo.setProductIcon("http://xxxxxxxx.jpg");
     productInfo.setCategoryType(1);
     productInfo.setProductStatus(1);

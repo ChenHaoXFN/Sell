@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    password: databasepw
+    password: 123456
     username: root
     url: jdbc:mysql://localhost/sell?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true
   jpa:
@@ -12,10 +12,10 @@ server:
 
 
 # 日志配置
-#logging:
+logging:
 #  pattern:
 #    console: "%d - %msg%n"
 #  path: /Users/chenhao/Work/log   # 配置日志路径
 #  file: /Users/chenhao/Work/log/sell.log # 配置日志路径和名称
 #  level:
-#    com.cdsn.sell.logTest.LogTest: debug # 配置日志级别，可以单独给单class配
+#    ROOT: debug

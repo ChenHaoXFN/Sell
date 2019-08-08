@@ -2,6 +2,7 @@ package com.cdsn.sell.controller;
 
 import com.cdsn.sell.entity.ProductCategory;
 import com.cdsn.sell.entity.ProductInfo;
+import com.cdsn.sell.repository.ProductInfoRepository;
 import com.cdsn.sell.service.ProductCategoryService;
 import com.cdsn.sell.service.ProductInfoService;
 import com.cdsn.sell.utils.ResultVOUtil;
@@ -18,6 +19,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.MatrixVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -40,7 +42,10 @@ public class ProductController {
   @Autowired
   private ProductCategoryService categoryService;
 
-  @PostMapping("product")
+  @Autowired
+  private ProductInfoRepository infoRepository;
+
+  @PostMapping("findProduct")
   public ResultVO getProduct(@Value("productId") String productId) {
     // 1.根据id查询.
     ProductInfo productInfo = infoService.findOne(productId);
@@ -48,6 +53,16 @@ public class ProductController {
       return ResultVOUtil.fail("空");
     }
     return ResultVOUtil.success(productInfo);
+  }
+
+  @PostMapping("product")
+  public ResultVO findProduct() {
+    return ResultVOUtil.success(infoRepository.findAll());
+  }
+
+  @GetMapping("getResult")
+  public String getResult(String value) {
+    return value;
   }
 
 
@@ -71,11 +86,25 @@ public class ProductController {
 
   @GetMapping("getList/{source}")
   public List<String> getParams(
-      @MatrixVariable(pathVar="source")  List<String> filterParams) {
+      @MatrixVariable(pathVar = "source") List<String> filterParams) {
     System.out.println(filterParams);
 
     return null;
   }
+
+
+  @PostMapping("saveProduct")
+  public String saveProduct(String date, String time,@RequestBody ProductInfo productInfo ) {
+    ProductInfo save = infoRepository.save(productInfo);
+    System.out.println(date);
+    System.out.println(time);
+
+    return save == null ? "保存失败" : "保存成功";
+  }
+
+
+  @PostMapping("")
+
 
   /**
    * 查看所有类目及其对应商品.
