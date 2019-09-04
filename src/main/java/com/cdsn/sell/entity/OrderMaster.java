@@ -22,7 +22,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Data
 @DynamicUpdate
 @DynamicInsert
-public class OrderMaster extends BaseEntity {
+public class      OrderMaster extends       BaseEntity{
 
   /**
    * 订单id.

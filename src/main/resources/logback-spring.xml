@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <configuration>
+  <!-- 控制台日志输出 -->
   <appender name="consoleLog" class="ch.qos.logback.core.ConsoleAppender">
     <layout class="ch.qos.logback.classic.PatternLayout">
       <pattern>
-        %d - %msg%n
+        %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %msg%n
       </pattern>
     </layout>
   </appender>
 
 
   <!--info 日志配置-->
+  <!-- 因为每天都要输出，所以是一个滚动输出，所以是RollingFileAppender -->
   <appender name="fileInfoLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <!--配置过滤器-->
     <filter class="ch.qos.logback.classic.filter.LevelFilter">
@@ -21,12 +23,12 @@
     </filter>
     <encoder>
       <pattern>
-        %msg%n
+        %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %msg%n
       </pattern>
     </encoder>
-    <!--滚动策略-->
+    <!--滚动策略 按照时间来滚动-->
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <!--路径-->
+      <!--路径  路径直接加上日期 %d -->
       <fileNamePattern>/Users/chenhao/Work/log/info.%d.log</fileNamePattern>
     </rollingPolicy>
   </appender>
@@ -40,7 +42,7 @@
     </filter>
     <encoder>
       <pattern>
-        %msg%n
+        %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} %msg%n
       </pattern>
     </encoder>
     <!--滚动策略-->

@@ -2,6 +2,7 @@ package com.cdsn.sell.converter;
 
 import com.cdsn.sell.dto.OrderDTO;
 import com.cdsn.sell.entity.OrderMaster;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.BeanUtils;
@@ -25,8 +26,8 @@ public class OrderMaster2OrderDTOConverter {
 
   public static List<OrderDTO> converter(List<OrderMaster> list) {
     if (list.isEmpty()) {
-      return null;
+      return Collections.emptyList();
     }
-    return list.stream().map(p -> converter(p)).collect(Collectors.toList());
+    return list.stream().map(OrderMaster2OrderDTOConverter::converter).collect(Collectors.toList());
   }
 }
