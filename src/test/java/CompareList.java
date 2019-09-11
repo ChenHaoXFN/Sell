@@ -19,30 +19,19 @@ import java.util.List;
  */
 public class CompareList {
 
-  private static List<String> kList = new ArrayList<>();
-  private static List<String> CList = new ArrayList<>();
+  private static List<String> resultList = new ArrayList<>();
 
   public static void main(String[] args) throws IOException {
 
-    File file = new File("/Users/chenhao/Downloads/list.txt");
+    File file = new File("/Users/chenhao/Desktop/extends.txt");
     InputStreamReader i = new InputStreamReader(new FileInputStream(file),"UTF-8");
     BufferedReader br = new BufferedReader(i);
     String line;
     while ((line = br.readLine()) != null) {
-      kList.add(line);
+      resultList.add(line);
     }
 
-    File cfile = new File("/Users/chenhao/Downloads/mylist.txt");
-    InputStreamReader ci = new InputStreamReader(new FileInputStream(cfile),"UTF-8");
-    BufferedReader cbr = new BufferedReader(ci);
-    String cline;
-    while ((cline = cbr.readLine()) != null) {
-      CList.add(cline);
-    }
-
-    System.out.println(CList.size());
-    System.out.println(kList.size());
-
+    System.out.println(resultList.size());
 
   }
 
